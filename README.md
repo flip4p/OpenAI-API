@@ -1,0 +1,1 @@
+This project reads text from a .txt file, processes it using OpenAI's API, and generates an HTML page as output. The text is formatted into a prompt and sent to the API, which returns HTML content. The final result is saved as an HTML file that displays the formatted content. This is useful for transforming raw text into structured web pages with the power of AI.
