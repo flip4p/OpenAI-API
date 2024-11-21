@@ -25,3 +25,17 @@ def extract_txt():
         Generate an HTML structure without any markdown code block formatting.'''
 
         return prompt_content
+
+
+
+def API_connect(prompt_content: str, save_path: str) -> None:
+    stream = openai.chat.completions.create(
+        model="gpt-4o",
+        messages=[{"role": "user", "content": prompt_content}],
+        stream=True,
+    )
+
+    with open(save_path, 'w', encoding='utf-8') as html_file:
+        for chunk in stream:
+            if chunk.choices[0].delta.content is not None:
+                html_file.write(chunk.choices[0].delta.content)
