@@ -39,3 +39,6 @@ def API_connect(prompt_content: str, save_path: str) -> None:
         for chunk in stream:
             if chunk.choices[0].delta.content is not None:
                 html_file.write(chunk.choices[0].delta.content)
+
+
+
